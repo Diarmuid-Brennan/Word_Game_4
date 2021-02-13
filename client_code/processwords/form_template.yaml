@@ -1,0 +1,53 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'SIWZRL,EJXTXG'}
+    components:
+    - type: Label
+      properties: {}
+      name: label_1
+      layout_properties: {grid_position: 'IDIJKP,WNYULU'}
+    - type: Label
+      properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Better luck next time., font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'JNLYPU,MYHKGV'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Look's like you have to try harder..., font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'NAKONY,NAXOCD'}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: 'Play Again?', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: play_again_button
+      layout_properties: {grid_position: 'XDFXBQ,IUANQK'}
+      event_bindings: {click: play_again_button_click}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Review the Rules, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: button_2
+      layout_properties: {grid_position: 'GSYUMW,DVOXDX'}
+      event_bindings: {click: button_2_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
