@@ -19,6 +19,8 @@ class startgame(startgameTemplate):
     answer = self.answers_box.text
     answer = answer.split()
     result = anvil.server.call('check_input', answer, randomWord)
-    print(result)
-    #open_form("processwords")
-
+    print(type(result))
+    if isinstance(result, str):  
+      open_form("processwords", result)
+    else:
+      open_form("processwin", result)

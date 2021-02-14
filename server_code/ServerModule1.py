@@ -41,31 +41,62 @@ def return_random_word():
   
 @anvil.server.callable
 def check_input(answer,randomWord):
+    
     response = ""
     tooSmallWords =[]
     foundWords =[]
-    duplicateWords = set()
     misspeltWords= []
     invalidLetters = set()
-    if(len(answer) != 7):
+    duplicates = False
+    exist = True
+    
+    if len(answer) != 7:
       response += "You have enterd an incorect number of words : " + str(len(answer)) + ", not 7 \n"
+      
+      
     for word in answer:
-        if(len(word) < 4):
+        checkWord = randomWord
+        if len(word) < 4:
           tooSmallWords.append(word)
-        for letter in word:
-          if letter not in randomWord:
-            invalidLetters.append(letter)
+            
+            
         matches = find_possible_matches(word)
-        if(len(matches)== 0):
+        if len(matches)== 0:
           misspeltWords.append(word)
-        else:
+          exist = False
+        
+        found = True  
+        for letter in word:
+          if letter in checkWord:
+            checkWord = checkWord.replace(letter, "")
+          else:
+            invalidLetters.add(letter)
+            found = False
+          
+          
+        if found == True and exist == True and len(word) > 3:
           if word not in foundWords:
             foundWords.append(word)
           else:
-            duplicateWords.append(word)
+            duplicates = True
             
+            
+    if len(tooSmallWords) > 0:
+      smallWord = ' '.join(tooSmallWords)
+      response += "These words are too small : "+ smallWord + "\n"
+    if len(misspeltWords) > 0 :
+      misspelt = ' '.join(misspeltWords)
+      response += "You misspelt these words : "+ misspelt + "\n"   
+    if duplicates == True:
+      duplcate =' '.join(answer)
+      response += "You have entered duplcates in your list : "+ duplcate + "\n"
+    if len(invalidLetters) > 0:
+      invalidLetter = list(invalidLetters)
+      invalid = ' '.join(invalidLetter)
+      response += "You have usd invalid letters : "+ invalid + "\n"
+      
     if(len(foundWords) == 7 and len(answer)==7):
-      return "Wellldone"
+      return foundWords
     else:
       return response
             
