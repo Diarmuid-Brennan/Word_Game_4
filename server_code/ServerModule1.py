@@ -68,6 +68,10 @@ def check_input(answer,randomWord):
           misspeltWords.append(word)
           exist = False
         
+        if word == randomWord:
+          response += "You cannot use the sourceword : " + randomWord + "\n"
+          exist = False
+          
         found = True  
         for letter in word:
           if letter in checkWord:

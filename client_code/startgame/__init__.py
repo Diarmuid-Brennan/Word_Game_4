@@ -12,14 +12,14 @@ import anvil.server
 
 
 class startgame(startgameTemplate):
-  
+  starttime = 0
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
     randomWord = anvil.server.call('return_random_word')
     self.sourceword_box.text = randomWord
-    starttime = int(round(time.time()))
+    self.starttime = int(round(time.time()))
     # Any code you write here will run when the form opens.
     
     
@@ -30,11 +30,10 @@ class startgame(startgameTemplate):
     random = self.sourceword_box.text
     endtime = int(round(time.time()))
 
-    #resulttime =  endtime - get_start_time(self)
-    #print(resulttime)
+    resulttime =  endtime -  self.starttime
     
     result = anvil.server.call('check_input', answer, random)
     if isinstance(result, str):  
       open_form("processwords", result)
     else:
-      open_form("processwin", result, random)
+      open_form("processwin", result, random, resulttime)
