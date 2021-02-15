@@ -52,6 +52,7 @@ components:
         background: '', bold: false, underline: false, icon: ''}
       name: record_score_button
       layout_properties: {grid_position: 'GWPDFC,FVLZNB'}
+      event_bindings: {click: record_score_button_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links

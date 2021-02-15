@@ -1,3 +1,6 @@
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
@@ -68,7 +71,7 @@ def check_input(answer,randomWord):
         found = True  
         for letter in word:
           if letter in checkWord:
-            checkWord = checkWord.replace(letter, "")
+            checkWord = checkWord.replace(letter, "", 1)
           else:
             invalidLetters.add(letter)
             found = False
@@ -101,7 +104,11 @@ def check_input(answer,randomWord):
       return response
             
         
-        
+@anvil.server.callable
+def add_score(player_data_dict):
+  app_tables.topscores.add_row(
+    **player_data_dict
+  )        
         
   
   

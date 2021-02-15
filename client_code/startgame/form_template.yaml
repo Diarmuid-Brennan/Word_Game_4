@@ -29,6 +29,13 @@ components:
       layout_properties: {grid_position: 'LQBTIX,BKVKNS'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Your word is    :    ', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'POTGAP,VTQQXP'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}

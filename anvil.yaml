@@ -52,11 +52,40 @@ services:
       thumbnailLink: https://lh3.googleusercontent.com/nUZ6gpHvsX_MZmh9FuqBeZMgvfOiGm-8VhE_Y8u3Ynx1rCDejOScChbsozO5mGfCSVjhTo-3rqo8QxQ=s220
       ownerNames: [Diarmuid Brennan]
   server_config: {delegation_refresh_token: 1//03L8zXMkqLWoBCgYIARAAGAMSNwF-L9IrzNrV_G79SvXFS0sxtbvX09KNShTuzCQ7oV21KMzdToxcY7WhnVi4sC84et2YAMKr5vA}
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
 package_name: Word_Game_4
 allow_embedding: false
 name: Word Game 4
 runtime_options: {version: 2, client_version: '3', server_version: python3-full}
 metadata: {}
 startup_form: rules
-db_schema: []
+db_schema:
+- name: topscores
+  id: 105920
+  python_name: topscores
+  columns:
+    ++iWOag1vcs=:
+      name: SourceWord
+      type: string
+      admin_ui: {order: 3, width: 200}
+    67jDUFczvmY=:
+      name: Position
+      type: number
+      admin_ui: {order: 0, width: 200}
+    DtD41jbKd3Q=:
+      name: Time
+      type: number
+      admin_ui: {order: 1, width: 200}
+    g77Mp9rlQtg=:
+      name: Who
+      type: string
+      admin_ui: {order: 2, width: 200}
+    tIfHmqdShak=:
+      name: Column4
+      type: simpleObject
+      admin_ui: {order: 4, width: 200}
+  access: {python_name: topscores, app_id: GRVG3JW722B3Q6MH, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 105920}
 renamed: true

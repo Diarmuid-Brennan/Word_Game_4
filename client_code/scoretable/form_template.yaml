@@ -1,0 +1,62 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'FAOTOX,IZJVUJ'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: You are placed in position, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'UCPSCO,OQWGUD'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Here is the top 10 scores, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'JLRADS,XPPXCS'}
+    - type: DataGrid
+      properties:
+        columns:
+        - {id: UOVFKZ, title: Column 1, data_key: column_1}
+        - {id: CWTRHW, title: Column 2, data_key: column_2}
+        - {id: YINGJT, title: Column 3, data_key: column_3}
+      name: data_grid_1
+      layout_properties: {grid_position: 'TDUGLQ,INXOAP'}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: scoretable.RowTemplate1}
+        name: repeating_panel_1
+        layout_properties: {}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Play Again!, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: play_again_button
+      layout_properties: {grid_position: 'FDLOCZ,QBPPSV'}
+      event_bindings: {click: play_again_button_click}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Review the Rules, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: review_rules_button
+      layout_properties: {grid_position: 'LQBQPR,STOICD'}
+      event_bindings: {click: review_rules_button_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
