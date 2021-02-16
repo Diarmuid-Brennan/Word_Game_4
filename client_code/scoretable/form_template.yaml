@@ -31,7 +31,7 @@ components:
       properties:
         role: null
         columns:
-        - {id: UOVFKZ, title: Position, data_key: '1'}
+        - {id: UOVFKZ, title: Position, data_key: ''}
         - {id: CWTRHW, title: Time, data_key: Time}
         - {id: YINGJT, title: Who, data_key: Who}
         - {id: KKRFJP, title: SourceWord, data_key: SourceWord}
@@ -47,12 +47,13 @@ components:
         spacing_below: small
         background: ''
       name: data_grid_1
-      layout_properties: {grid_position: 'TDUGLQ,INXOAP'}
+      layout_properties: {grid_position: 'TDUGLQ,KBXPVH'}
       components:
       - type: RepeatingPanel
         properties: {spacing_above: none, spacing_below: none, item_template: scoretable.RowTemplate1}
-        name: repeating_panel_1
+        name: repeating_panel_scores
         layout_properties: {}
+      data_bindings: []
     - type: Button
       properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Play Again!, font_size: null, font: '',
