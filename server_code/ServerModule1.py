@@ -139,8 +139,7 @@ def find_player_position(playerList, name, sourceword):
         if dic['Who'] == name and dic['SourceWord'] == sourceword:
             return i + 1 
   
-  
- 
+
   
   
   
