@@ -55,7 +55,7 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
-startup: {type: form, module: scoretable}
+startup: {type: form, module: rules}
 package_name: Word_Game_4
 allow_embedding: false
 name: Word Game 4
@@ -82,6 +82,6 @@ db_schema:
       name: Matches
       type: simpleObject
       admin_ui: {order: 4, width: 200}
-  access: {python_name: topscores, app_id: GRVG3JW722B3Q6MH, server: full, client: none,
+  access: {python_name: topscores, app_id: GRVG3JW722B3Q6MH, server: full, client: search,
     table_mapping_name: null, table_mapping_id: null, table_id: 105920}
 renamed: true

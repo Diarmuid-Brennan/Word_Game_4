@@ -117,8 +117,12 @@ def add_score(player_data_dict):
 @anvil.server.callable
 def get_score_table():
   return app_tables.topscores.search(tables.order_by("Time", ascending=True)) 
-  
-  
+
+@anvil.server.callable
+def find_player_position(playerList, name, sourceword):
+    for i, dic in enumerate(playerList):
+        if dic['Who'] == name and dic['SourceWord'] == sourceword:
+            return i + 1 
   
   
  

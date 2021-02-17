@@ -32,4 +32,4 @@ class processwin(processwinTemplate):
     }
     
     anvil.server.call('add_score', player_data)
-    open_form('scoretable')
+    open_form('scoretable', name, self.sourceword)

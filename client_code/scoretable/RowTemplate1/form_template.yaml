@@ -1,7 +1,3 @@
 container: {type: DataRowPanel}
-components:
-- type: Label
-  properties: {}
-  name: position_label
-  layout_properties: {column: UOVFKZ}
+components: []
 is_package: true
