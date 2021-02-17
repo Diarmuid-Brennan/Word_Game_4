@@ -116,7 +116,22 @@ def add_score(player_data_dict):
         
 @anvil.server.callable
 def get_score_table():
-  return app_tables.topscores.search(tables.order_by("Time", ascending=True)) 
+  #return app_tables.topscores.search(tables.order_by("Time", ascending=True)) 
+  position = 1 
+  scores = app_tables.topscores.search(tables.order_by("Time", ascending=True))
+  players = []
+  for row in scores:
+    Position = str(position)     
+    playerDetails = {
+                      'Position' : Position,
+                        'Time' : row['Time'],
+                        'Who' : row['Who'],
+                        'SourceWord' : row['SourceWord'],
+                        'Matches' : row['Matches']
+                      } 
+    position += 1
+    players.append(playerDetails)
+  return players
 
 @anvil.server.callable
 def find_player_position(playerList, name, sourceword):

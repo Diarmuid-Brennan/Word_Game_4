@@ -12,21 +12,22 @@ class scoretable(scoretableTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
-    position = 1 
-    scores = anvil.server.call('get_score_table')
-    players = []
-    for row in scores:
-      Position = str(position)     
-      playerDetails = {
-                        'Position' : Position,
-                          'Time' : row['Time'],
-                          'Who' : row['Who'],
-                          'SourceWord' : row['SourceWord'],
-                          'Matches' : row['Matches']
-                        } 
-      position += 1
-      players.append(playerDetails)
-      
+    #position = 1 
+    #scores = anvil.server.call('get_score_table')
+    #players = []
+    #for row in scores:
+     # Position = str(position)     
+      #playerDetails = {
+       #                 'Position' : Position,
+        #                  'Time' : row['Time'],
+         #                 'Who' : row['Who'],
+          #                'SourceWord' : row['SourceWord'],
+           #               'Matches' : row['Matches']
+            #            } 
+      #position += 1
+      #players.append(playerDetails)
+    
+    players = anvil.server.call('get_score_table')
     #playerPosition = find_player_position(players, name, sourceword)
     playerPosition = anvil.server.call('find_player_position', players, name, sourceword)
     print(playerPosition)
