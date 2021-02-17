@@ -18,18 +18,19 @@ class processwin(processwinTemplate):
     self.answerlist = answerlist
     self.time = time
     self.time_label.text = "Congratulations! You took " + str(time) + " seconds." 
-    # Any code you write here will run when the form opens.
-    
+   
 
   def record_score_button_click(self, **event_args):
     name = self.input_name_box.text
-    
-    player_data = {
-      "Time" : self.time,
-      "Who" : name,
-      "SourceWord" : self.sourceword,
-      "Matches" : self.answerlist
-    }
-    
-    anvil.server.call('add_score', player_data)
-    open_form('scoretable', name, self.sourceword)
+    if name == "":
+      alert("You must enter a name")
+    else:
+      player_data = {
+        "Time" : self.time,
+        "Who" : name,
+        "SourceWord" : self.sourceword,
+        "Matches" : self.answerlist
+      }
+      
+      anvil.server.call('add_score', player_data)
+      open_form('scoretable', name, self.sourceword)

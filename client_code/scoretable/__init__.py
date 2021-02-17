@@ -11,26 +11,10 @@ class scoretable(scoretableTemplate):
   def __init__(self, name, sourceword, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
-    #position = 1 
-    #scores = anvil.server.call('get_score_table')
-    #players = []
-    #for row in scores:
-     # Position = str(position)     
-      #playerDetails = {
-       #                 'Position' : Position,
-        #                  'Time' : row['Time'],
-         #                 'Who' : row['Who'],
-          #                'SourceWord' : row['SourceWord'],
-           #               'Matches' : row['Matches']
-            #            } 
-      #position += 1
-      #players.append(playerDetails)
-    
+   
     players = anvil.server.call('get_score_table')
-    #playerPosition = find_player_position(players, name, sourceword)
     playerPosition = anvil.server.call('find_player_position', players, name, sourceword)
-    print(playerPosition)
+
     totalPlayers = len(players)  
     self.position_label.text = "You are placed in position " + str(playerPosition) + " out of " + str(totalPlayers) + " players."
     outputList = players[:10]

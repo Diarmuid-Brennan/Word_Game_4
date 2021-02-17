@@ -27,6 +27,8 @@ class startgame(startgameTemplate):
   def submit_button_click(self, **event_args):
     answer = self.answers_box.text
     answer = answer.split()
+    answer = [word.lower() for word in answer]
+ 
     random = self.sourceword_box.text
     endtime = int(round(time.time()))
 
