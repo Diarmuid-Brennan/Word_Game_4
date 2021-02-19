@@ -49,7 +49,56 @@ services:
       quotaBytesUsed: '1639906'
       md5Checksum: ad60b8807aa0a89f55d3c537feac6184
       originalFilename: words
-      thumbnailLink: https://lh3.googleusercontent.com/nUZ6gpHvsX_MZmh9FuqBeZMgvfOiGm-8VhE_Y8u3Ynx1rCDejOScChbsozO5mGfCSVjhTo-3rqo8QxQ=s220
+      thumbnailLink: https://lh3.googleusercontent.com/sqIuAOpJB1BUNQyvqg1eQ08skWjiN6bmhTPvLw8yi9rr2vlYB7L3XzEWmgWqlAkHa8ZsmttMF6CwZLs=s220
+      ownerNames: [Diarmuid Brennan]
+    - capabilities: {canCopy: true, canEdit: true}
+      editable: true
+      copyable: true
+      webContentLink: https://drive.google.com/uc?id=14m89_uWDFxY-JqGCiysFQqZnm75wq5QH&export=download
+      embedLink: https://drive.google.com/file/d/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH/preview?usp=drivesdk
+      fileExtension: txt
+      copyRequiresWriterPermission: false
+      python_name: errorlog_txt
+      explicitlyTrashed: false
+      lastModifyingUser: {kind: drive#user, displayName: Diarmuid Brennan, isAuthenticatedUser: true,
+        permissionId: '18349921081441634171', emailAddress: diarmuidbrennan32@gmail.com}
+      shared: false
+      createdDate: '2021-02-19T20:10:57.988Z'
+      id: 14m89_uWDFxY-JqGCiysFQqZnm75wq5QH
+      owners:
+      - {kind: drive#user, displayName: Diarmuid Brennan, isAuthenticatedUser: true,
+        permissionId: '18349921081441634171', emailAddress: diarmuidbrennan32@gmail.com}
+      markedViewedByMeDate: '1970-01-01T00:00:00.000Z'
+      spaces: [drive]
+      parents:
+      - {kind: drive#parentReference, id: 0AGJFN7678Z97Uk9PVA, selfLink: 'https://www.googleapis.com/drive/v2/files/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH/parents/0AGJFN7678Z97Uk9PVA',
+        parentLink: 'https://www.googleapis.com/drive/v2/files/0AGJFN7678Z97Uk9PVA',
+        isRoot: true}
+      labels: {starred: false, hidden: false, trashed: false, restricted: false, viewed: true}
+      iconLink: https://drive-thirdparty.googleusercontent.com/16/type/text/plain
+      headRevisionId: 0B2JFN7678Z97SndESm9rbTVtMkdnb2RZMWx0K3VmemYzRUFnPQ
+      selfLink: https://www.googleapis.com/drive/v2/files/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH
+      lastViewedByMeDate: '2021-02-19T20:10:57.988Z'
+      userPermission: {kind: drive#permission, etag: '"P-c40GuVe8Smlsyu-JvPvS5H5b8"',
+        id: me, selfLink: 'https://www.googleapis.com/drive/v2/files/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH/permissions/me',
+        role: owner, type: user}
+      lastModifyingUserName: Diarmuid Brennan
+      etag: '"MTYxMjQ2ODEzNjAwMA"'
+      kind: drive#file
+      modifiedByMeDate: '2021-02-04T19:48:56.000Z'
+      title: errorlog.txt
+      version: '2'
+      appDataContents: false
+      writersCanShare: true
+      fileSize: '0'
+      alternateLink: https://drive.google.com/file/d/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH/view?usp=drivesdk
+      mimeType: text/plain
+      modifiedDate: '2021-02-04T19:48:56.000Z'
+      downloadUrl: https://www.googleapis.com/drive/v2/files/14m89_uWDFxY-JqGCiysFQqZnm75wq5QH?alt=media&source=downloadUrl
+      quotaBytesUsed: '0'
+      md5Checksum: d41d8cd98f00b204e9800998ecf8427e
+      originalFilename: errorlog.txt
+      thumbnailLink: https://lh3.googleusercontent.com/94fi_FhCzPPIioY7Oy-ViReZf6JDDg-GXM4Ly-hpORmJBiXPYA7f8nAI_hy76NnN56vabDAncyGwjrM=s220
       ownerNames: [Diarmuid Brennan]
   server_config: {delegation_refresh_token: 1//03L8zXMkqLWoBCgYIARAAGAMSNwF-L9IrzNrV_G79SvXFS0sxtbvX09KNShTuzCQ7oV21KMzdToxcY7WhnVi4sC84et2YAMKr5vA}
 - source: /runtime/services/tables.yml

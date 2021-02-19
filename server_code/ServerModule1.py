@@ -7,7 +7,9 @@ import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.server
 import random
+from datetime import datetime
 
+logfile = str(app_files.errorlog_txt.get_bytes(), 'UTF-8')
 file = str(app_files.words.get_bytes(), 'UTF-8')
 file = file.split()
 
@@ -103,10 +105,44 @@ def check_input(answer,randomWord):
       response += "You have usd invalid letters : "+ invalid + "\n"
       
     if(len(foundWords) == 7 and len(answer)==7):
+      success_log(randomWord,answer)
       return foundWords
     else:
+      error_log(randomWord,answer)
       return response
-            
+
+
+def error_log(sourceword, answers):
+    error_string = logfile  
+    now = datetime.now()
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    answerstring = ''.join(answers)
+    clientdata = anvil.server.context.client
+    ipaddress =clientdata.ip
+    
+    error_string += "!!! ERRORS : " + sourceword + " - " + answerstring + "\n"
+    error_string += dt_string + " - " + ipaddress + " - " + "\n"
+    error_string += "--------------------------------------------------------\n"
+    
+    app_files.errorlog_txt.set_bytes(error_string)
+    
+def success_log(sourceword, answers):
+    success_string = logfile  
+    now = datetime.now()
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    answerstring = ''.join(answers)
+    
+    success_string += "SUCCESS : " + sourceword + " - " + answerstring + "\n"
+    success_string += dt_string + "\n"
+    success_string += "--------------------------------------------------------\n"
+    
+    app_files.errorlog_txt.set_bytes(success_string)
+    
+@anvil.server.callable    
+def display_log():
+  return logfile
         
 @anvil.server.callable
 def add_score(player_data_dict):

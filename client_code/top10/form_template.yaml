@@ -1,0 +1,72 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'SSVNXT,JFNINS'}
+    components:
+    - type: Label
+      properties: {}
+      name: label_1
+      layout_properties: {grid_position: 'WYDFIH,UZPGIT'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Here is the top 10 scores, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'QKAIJR,WDBEUU'}
+    - type: DataGrid
+      properties:
+        role: null
+        columns:
+        - {id: SKNOZX, title: Position, data_key: Position}
+        - {id: DVJWCI, title: Time, data_key: Time}
+        - {id: DEXXIE, title: Who, data_key: Who}
+        - {id: FJWYOI, title: SourceWord, data_key: SourceWord}
+        - {id: WTVNBY, title: Matches, data_key: Matches}
+        auto_header: true
+        tooltip: ''
+        border: ''
+        foreground: ''
+        rows_per_page: 20
+        visible: true
+        show_page_controls: true
+        spacing_above: small
+        spacing_below: small
+        background: ''
+      name: data_grid_1
+      layout_properties: {grid_position: 'MCXPXQ,GBHDKL'}
+      components:
+      - type: RepeatingPanel
+        properties: {spacing_above: none, spacing_below: none, item_template: top10.RowTemplate2}
+        name: repeating_panel_scores
+        layout_properties: {}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Play again!, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: play_again_button
+      layout_properties: {grid_position: 'LFOFMF,COCKSE'}
+      event_bindings: {click: play_again_button_click}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: REVIEW THE RULES, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: review_rules_button
+      layout_properties: {grid_position: 'TJSUWI,RYHTYM'}
+      event_bindings: {click: review_rules_button_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
