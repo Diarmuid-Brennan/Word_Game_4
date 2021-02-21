@@ -15,3 +15,7 @@ class viewlog(viewlogTemplate):
     self.display_errorlog_label.text = log
     # Any code you write here will run when the form opens.
     
+
+  def review_rules_button_click(self, **event_args):
+    open_form('rules')
+

@@ -17,6 +17,14 @@ components:
       properties: {}
       name: display_errorlog_label
       layout_properties: {grid_position: 'VDTKZQ,QSXLFW'}
+    - type: Button
+      properties: {role: primary-color, align: left, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Review Rules!, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: review_rules_button
+      layout_properties: {grid_position: 'ZRIBBB,TUETMK'}
+      event_bindings: {click: review_rules_button_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
