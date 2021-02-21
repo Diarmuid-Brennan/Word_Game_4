@@ -45,7 +45,7 @@ def return_random_word():
     return random.choice(matches)
   
 @anvil.server.callable
-def check_input(answer,randomWord):
+def check_input(answer,randomWord, user_agent):
     
     response = ""
     tooSmallWords =[]
@@ -105,37 +105,43 @@ def check_input(answer,randomWord):
       response += "You have usd invalid letters : "+ invalid + "\n"
       
     if(len(foundWords) == 7 and len(answer)==7):
-      success_log(randomWord,answer)
+      success_log(randomWord,answer, user_agent)
       return foundWords
     else:
-      error_log(randomWord,answer)
+      error_log(randomWord,answer, user_agent)
       return response
 
+    
+@anvil.server.http_endpoint('/get-user-agent')
+def get_user_agent():
+  return {'ua': anvil.server.request.headers['user-agent']}
 
-def error_log(sourceword, answers):
+def error_log(sourceword, answers, user_agent):
     error_string = logfile  
     now = datetime.now()
     # dd/mm/YY H:M:S
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    answerstring = ''.join(answers)
+    answerstring = ' '.join(answers)
     clientdata = anvil.server.context.client
     ipaddress =clientdata.ip
     
     error_string += "!!! ERRORS : " + sourceword + " - " + answerstring + "\n"
-    error_string += dt_string + " - " + ipaddress + " - " + "\n"
+    error_string += dt_string + " - " + ipaddress + " - " + user_agent + "\n"
     error_string += "--------------------------------------------------------\n"
     
     app_files.errorlog_txt.set_bytes(error_string)
     
-def success_log(sourceword, answers):
+def success_log(sourceword, answers, user_agent):
     success_string = logfile  
     now = datetime.now()
     # dd/mm/YY H:M:S
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    answerstring = ''.join(answers)
+    answerstring = ' '.join(answers)
+    clientdata = anvil.server.context.client
+    ipaddress =clientdata.ip
     
     success_string += "SUCCESS : " + sourceword + " - " + answerstring + "\n"
-    success_string += dt_string + "\n"
+    success_string += dt_string + " - " + ipaddress + " - " + user_agent + "\n"
     success_string += "--------------------------------------------------------\n"
     
     app_files.errorlog_txt.set_bytes(success_string)

@@ -34,7 +34,9 @@ class startgame(startgameTemplate):
 
     resulttime =  endtime -  self.starttime
     
-    result = anvil.server.call('check_input', answer, random)
+    user_agent = anvil.http.request(anvil.server.get_api_origin() + '/get-user-agent', json=True)['ua']
+   
+    result = anvil.server.call('check_input', answer, random, user_agent)
     if isinstance(result, str):  
       open_form("processwords", result)
     else:
