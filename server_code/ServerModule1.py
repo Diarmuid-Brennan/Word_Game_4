@@ -124,6 +124,7 @@ def error_log(sourceword, answers, user_agent):
     answerstring = ' '.join(answers)
     clientdata = anvil.server.context.client
     ipaddress =clientdata.ip
+
     
     error_string += "!!! ERRORS : " + sourceword + " - " + answerstring + "\n"
     error_string += dt_string + " - " + ipaddress + " - " + user_agent + "\n"
